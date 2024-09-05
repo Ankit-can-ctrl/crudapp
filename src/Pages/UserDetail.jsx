@@ -21,7 +21,12 @@ const UserDetail = () => {
     }
   };
 
-  if (!user) return <p>Loading...</p>;
+  if (!user)
+    return (
+      <div className="flex justify-center items-center w-full h-screen">
+        <div className="spinner"></div> {/* CSS spinner */}
+      </div>
+    );
 
   return (
     <div className="container mx-auto p-4">
