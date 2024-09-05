@@ -10,10 +10,12 @@ const UserManagementApp = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  //   on initial render the data from api will be fetched
   useEffect(() => {
     fetchUsers();
   }, []);
 
+  //   async function to get data from url and put it in users array
   const fetchUsers = async () => {
     setLoading(true);
     try {
@@ -27,6 +29,7 @@ const UserManagementApp = () => {
     }
   };
 
+  //   http request for sending new data to the server
   const createUser = async (user) => {
     setLoading(true);
     try {
@@ -45,7 +48,7 @@ const UserManagementApp = () => {
       setLoading(false);
     }
   };
-
+  // async function for updating existing resource on the server using PUT http request wtih a  specific user id
   const updateUser = async (id, updatedUser) => {
     setLoading(true);
     try {
@@ -65,6 +68,7 @@ const UserManagementApp = () => {
     }
   };
 
+  //   delete http request for deleting a resource from the server wtih a  specific user id
   const deleteUser = async (id) => {
     setLoading(true);
     try {
@@ -79,6 +83,7 @@ const UserManagementApp = () => {
     }
   };
 
+  //   submit function for creating new resource or updating the form for existing resources
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
